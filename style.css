@@ -847,43 +847,52 @@ a {
   padding: 28px;
 }
 
-/* free code camp */
+/* free code camp start*/
 /* Certificate card (matches education card style) */
-.certificate-card {
+/* Wide preview: certificate image full-width under the text */
+.certificate-card.wide-preview {
   display: grid;
-  grid-template-columns: 0.9fr 160px;
-  align-items: center;
+  grid-template-columns: 1fr;
   gap: 18px;
-  padding: 20px;
+  padding: 22px;
   border-radius: 16px;
 }
 
-/* Thumbnail box */
-.certificate-thumb {
-  display: grid;
-  place-items: center;
-  padding: 8px;
-  border-radius: 10px;
+.certificate-card.wide-preview .certificate-thumb {
+  width: 100%;
+  display: block;
+  padding: 12px;
   background: rgba(255,255,255,0.02);
+  border-radius: 10px;
 }
 
-.certificate-thumb img {
-  max-width: 140px;
+.certificate-card.wide-preview .certificate-thumb img {
   width: 100%;
-  height: auto;
-  border-radius: 6px;
+  max-width: 100%;
+  height: auto;           /* keep aspect ratio */
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
+
+/* keep year aligned same as other cards */
+.certificate-card.wide-preview .education-year {
+  align-self: start;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+/* responsive spacing */
 @media (max-width: 780px) {
-  .certificate-card {
-    grid-template-columns: 1fr;
+  .certificate-card.wide-preview {
+    padding: 18px;
   }
-  .certificate-thumb {
-    justify-self: center;
+  .certificate-card.wide-preview .certificate-thumb {
+    padding: 8px;
   }
 }
-/* free code camp */
+/* free code camp end*/
 
 .education-card {
   display: grid;
